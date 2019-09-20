@@ -1,0 +1,35 @@
+\chapter{Introdução}
+\label{cap:intro}
+
+Visão computacional é a combinação de varias técnicas de processamento de imagens  com o objetivo de identificar padrões, e reconhecer objetos em imagens. Ainda que a visão computacional já esteja sendo utilizada em diversas áreas de negócio, como para identificar doenças em raios-x, identificar produtos e onde comprá-los, detecção de fraudes, reconhecimento de caracteres entre outros. Ainda é uma tarefa muito complexa e está em evolução. \cite{dsAcademy2017}
+
+Atualmente existem aplicações para  reconhecimento de padrões que antes entendiam ser irrealizáveis, com a constante evolução e aprimoramento de técnicas de processamento de imagens, aumento do poder de processamento dos computadores e inteligencia artificial, no futuro pode haver aplicações que que hoje  imaginamos ser impossível de realizar. Porém a identificação de padrões em imagens não é nada trivial \cite{rios2010}, felizmente existem algumas ferramentas de desenvolvimento  que nos ajudam bastante, um exemplo delas é a OpenCV.
+
+Este trabalho pretende abordar a aplicação de técnicas de visão computacional na área da psicologia, especificamente no teste palográfico. O teste consiste em pedir a uma pessoa que faça pequenos traços verticais paralelos (palos) em uma folha de papel. O teste é muito utilizado em RH para fazer contratações, em órgãos como a Polícia Federal (para liberar o porte de armas) e Detran (para autorizar a carteira de habilitação).\cite{kenoby2017}
+
+O teste palográfico segue uma tabela que define um padrão de normalidade levando em consideração o sexo e escolaridade da pessoa avaliada.
+
+Segundo \cite{psicohood2018} dentre algumas das particularidades avaliadas pelo teste estão:
+
+\begin{itemize}
+\item Produtividade;
+\item Ritmo de trabalho;
+\item Iniciativa;
+\item Agressividade;
+\item Extroversão;
+\item Insegurança;
+
+ 
+\end{itemize}
+O teste palográfico pode ser aplicado em grupo ou individual, cada indivíduo pode fazer mais de 1000 palos em uma folha de papel durante o teste, o psicologo ao fazer a correção tem que contar manualmente cada palo  para fazer sua avaliação quantitativa, isso é bastante cansativo e demorado para o profissional principalmente se tiver que fazer varias correções em um único dia, por exemplo no Detran quantas pessoas fazem esse teste por dia? e isso não é tudo pois o psicologo tem que fazer também a análise qualitativa que envolve outros aspectos dos palos. 
+
+O objetivo geral deste trabalho é automatizar o processo da analise quantitativa do teste palográfico utilizando técnicas de visão computacional para realizar a identificação e contagem ordenada dos palos em imagens digitais capturadas por smartphone. Para ficar claro esse trabalho não tem o objetivo de desenvolver o aplicativo para o celular, apenas o algoritmo que visa extrair as informações da imagem podendo  ser disponibilizadas como API REST em futuras aplicações. Para alcançar esse objetivo pretende -se realizar os seguintes objetivos específicos:
+\begin{itemize}
+\item Estudo sobre a aplicação do teste palográfico
+\item Aplicação de técnicas de visão de computacional para identificação e contagem dos palos
+\item validação dos resultados
+\end{itemize}
+
+Existe um software \cite{skip2018} que faz a analise quantitativa e qualitativa dos palos, através de imagens capturadas por scanners específicos  instalados em um computador .
+
+O próximo capítulo traz a fundamentação teórica detalhando e reunindo os conceitos científicos sobre o teste palográfico, processamento Digital de Imagens e visão computacional. No capítulo 3 sera mostrado todo o processo de desenvolvimento do algorítimo e técnicas utilizadas neste trabalho.

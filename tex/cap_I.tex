@@ -1,0 +1,59 @@
+\chapter{Introdução}
+\label{cap:intro}
+
+
+O desenvolvimento tecnológico tem avançado muito nos últimos tempos, principalmente na computação móvel por exemplo os nossos celulares  estão com um poder de processamento cada vez maior e o acessa a internet tem se popularizado cada vez mais, possibilitando o surgimentos de serviços inovadores como aberturas de contas bancárias, fazer pagamentos utilizando a câmera como leitor de código de barras, pedir um carro para levá-lo onde quiser, escanear documentos usando a câmera do celular, pedir comida, reservar um lugar para passar uns dias, dentre outros. Nesse sentido, vemos que muitos setores de diversas áreas buscam  adaptar seus produtos e serviços às exigências da atualidade.
+
+A psicologia não está fora dessa evolução tecnológica, o que permite melhorar suas técnicas de investigação e as práticas que direcionam seus profissionais. O emprego da tecnologia contribui muito para os avanços que a área precisa, ao possibilitar, por exemplo, suporte ao profissional na execução das tarefas mecânicas, como a de contagem, correção e conversão de pontuações nas ocasiões em que os testes são utilizados \cite{psico-artigo}
+
+Com o uso de recursos tecnológicos o psicologo aperfeiçoa sua prática, uma vez que, além de economizar tempo, reduzem erros de medições nos testes psicológicos, fazendo com que as avaliações sejam mais precisas e confiáveis.
+
+Apesar dos avanços da informática na área da psicologia, poucos serviços ou produtos voltados aos testes psicológicos foram desenvolvidos para  dispositivos móveis.
+
+\section{Motivação}
+\label{sec:motiv}
+Apesar de alguns avanços conseguidos com o uso da informática na psicologia alguns processos ainda são realizados de maneira manual, como a contagem dos palos no teste palográfico.
+O teste palográfico pode ser aplicado em grupo ou individual, cada indivíduo pode fazer mais de 1000 palos em uma folha de papel durante o teste, o aplicador ao fazer a correção tem que contar manualmente cada palo para fazer sua avaliação quantitativa, isso é bastante exaustivo e demorado para o profissional principalmente se tiver que fazer varias correções em um único dia, por exemplo no Detran quantas pessoas fazem esse teste por dia? analisando os dados no portal do Detran \footnote{http://inside.detran.go.gov.br/habilitacao/index.htm} vemos que houve uma variação na quantidade de condutores de 3599 entre os meses de julho e agosto,  isso significa que nesse período foram realizados por dia uma média de 116 testes palográficos, e isso não é tudo, pois o psicólogo ao fazer a correção do teste  precisa realizar também a análise qualitativa, que envolve outros aspectos dos palos. 
+
+Outro problema resultante da contagem manual é que devido esse processo ser exaustivo, pois os aplicadores precisam contar os palos de muitos testes realizados em certo período, isso pode gerar erros na contagem. O desenvolvimento de uma forma eficaz e prática de  contagem dos palos agilizaria muito o trabalho dos aplicadores do teste palográfico, aumentando sua produtividade e qualidade de vida. O que traria um grande benefício para os profissionais dessa área como um todo.
+
+
+\section{Objetivos}
+\label{sec:motiv}
+
+O objetivo geral deste trabalho é propor a utilização de técnicas de  visão computacional e processamento de imagens para  aprimorar e auxiliar o processo de avaliação quantitativa do teste palográfico. Espera-se neste trabalho que o algoritmo desenvolvido possa realizar a identificação e contagem ordenada dos palos em imagens obtidas por meio de um celular. Para ficar claro esse trabalho não tem o objetivo de desenvolver o aplicativo para o celular, apenas o algoritmo que visa extrair as informações da imagem podendo  ser disponibilizadas como API REST em futuras aplicações. Para alcançar esse objetivo, pretende-se realizar os seguintes objetivos específicos:
+\begin{itemize}
+\item Realizar um estudo sobre a aplicação do teste palográfico;
+\item Identificar potenciais técnicas de processamento de imagens pra localização dos palos;
+\item fazer experimentos com algoritmos que possam extrair características relevantes para a identificação dos palos;
+\item Elaborar um algoritmo de contagem dos objetos localizados, os palos;
+\item Avaliação dos resultados obtidos.
+\end{itemize}
+
+Dessa maneira, seria possível que o  resultante deste trabalho produza um protótipo capaz de realizar a contagem automática dos palos, sem a necessidade de uso de um hardware específico como ocorre em \cite{skip2018}, apenas com o uso de imagem feito por celular ? É o que este estudo pretende responder.
+
+
+
+\section{Trabalhos relacionados}
+\label{sec:tbrel}
+
+Nesta seção são apresentados alguns trabalhos relacionados que foram encontrados na literatura. Mostrando aos leitores que a área citada neste trabalho trata-se de fontes de interesse de estudos científicos.
+
+Diversos trabalhos de processamentos de imagens e visão computacional com foco em detecção e contagem de objetos são encontrados na literatura. No trabalho apresentado em \cite{SANTOS2013}  o objetivo é a contagem automática de veículos em vias. Neste trabalho foi aplicado técnica de segmentação estatística, baseada em regressão linear não paramétrica na parte de segmentação do contador. O trabalho foi dividido em três módulos, uma para a segmentação, outro para rastreamento e outro para o reconhecimento. As técnicas utilizadas nos módulos foram segmentação por subtração do fundo, filtros kalman no rastreamento e rede neural perceptron multicamadas, treinada por retropropagação no reconhecimento. Os resultados foram satisfatórios, capaz de fazer a contagem de três classes de veículos, carro, caminhão, e ônibus com taxa de acerto em torno de 70\% no melhor caso e 50\% no pior. Esse projeto foi desenvolvido na linguagem C e C++/CLI, foi utilizada também no processamento de imagens a biblioteca OpenCV.
+
+É apresentado em \cite{SILVA2012} um trabalho sobre contagem semi-automática e automática dos ovos do mosquito da dengue como uso de processamento de imagens adquiridas de palhetas das ovitrampas , armadilhas especiais para deposição e contagem dos ovos do mosquito. O sistema desenvolvido é baseado em uma plataforma óptica, uma interface homem-máquina e um software de aquisição de imagem. A contagem semi-automática gerou um ganho de velocidade na contagem  de três vezes com relação a contagem manual. A contagem automática dos ovos baseia-se nos processo de segmentação (realizada por cor e por limiarização, filtragem(espacial e morfológica) e quantificação. Foram utilizadas 100 imagens obtendo um erro global de 2.67\%. Obtendo resultados satisfatórios.
+
+Outro trabalho semelhante, é apresentado em \cite{BANKE2012} que descreve o desenvolvimento de um sistema para contagem automática de células sanguíneas em campos microscópicos por meio de visão computacional. No pré-processamento das imagens foram utilizadas técnicas para redução de ruídos como filtros da mediana, algorítimos de inundação que combina as técnicas de detecção de bordas, limiarização e crescimento de região, na segmentação, operações morfológicas de erosão e dilatação, na etapa de descrição foi utilizado algoritmos de rotulação de componentes conexos, no qual é gerado uma lista que contém a posição de cada elemento, em seguida, é feito o cálculo da área com base no número de pontos pertencentes ao mesmo. Na identificação é feito a contagem verificando-se a área de cada elemento com base em um valor aceitável e descartando os que estiverem fora desse valor. 
+Sistema implementado em C++, com uso da biblioteca OpenCV.
+
+O trabalho proposto em \cite{SILVA2018} tem como objetivo utilizar técnicas de aprendizado de máquina e visão computacional para detecção e contagem de árvores em uma plantação de eucaliptos. Foram utilizados modelos de redes neurais convolucionais existentes na plataforma TensorFlow. As imagens para treinamento da rede foram obtidas por um VANT(Veículos Aéreos Não Tripulados) através de um sobrevoo na plantação. Dos modelos testados o que se saiu melhor foi o Faster R-CNN(\textit{Region-proposal Convolutional Neural Network}) Resnet 101 com precisão de 95\% contando 7471 das 7866 plantas de eucaliptos, com apenas 395 resultados falsos 5\%.  Foi utilizado no desenvolvimento a linguagem Python e a biblioteca de aprendizado de maquina TensorFlow da Google.
+
+O único projeto relacionado com a contagem dos palos encontrado foi um software chamado SKIP \cite{skip-artigo}, que faz a análise quantitativa e qualitativa dos palos, através de imagens capturadas por scanners específicos instalados em um computador. A vantagem do protótipo desenvolvido neste trabalho com relação ao software SKIP e que não é preciso adquirir nenhum hardware específico para utilizá-lo, e a desvantagem é que o protótipo ainda não faz a análise qualitativa, que ficará para trabalhos futuros.
+
+
+
+
+\section{Organização do texto}
+\label{sec:motiv}
+
+O próximo Capítulo traz a fundamentação teórica, detalhando e reunindo os conceitos científicos sobre o teste palográfico, processamento Digital de Imagens e visão computacional. No Capítulo 3, é mostrado todo o processo de desenvolvimento do algorítimo e técnicas utilizadas neste trabalho. No Capítulo 4, é apresentado toda a análise referente à execução de testes e resultados alcançados no protótipo. No Capítulo 5, temos a conclusão do trabalho proposto e abordagem de trabalhos futuros.
