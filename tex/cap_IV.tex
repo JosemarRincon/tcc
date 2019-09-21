@@ -4,10 +4,10 @@
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -------
 Neste capítulo serão apresentados os testes no protótipo e a análise dos resultados. Para execução dos testes, foram levadas em consideração algumas possíveis restrições para captura da imagem pelo celular, para que não afete o funcionamento do algoritmo. 
 
-A folha do teste deve estar em uma superfície plana e o celular deve estar posicionado a uma distancia de aproximadamente 30 cm da folha do teste, ele deve ficar paralelo a superfície do teste para uma melhor captura da imagem, deve se respeitar também todas as restrições vistas na Seção 3.3.1. Foram utilizadas no teste as folhas do modelo II conforme seção 2.2.1. Ao todo, foram utilizadas 10 imagem do teste palografico.
+A folha do teste deve estar em uma superfície plana e o celular deve estar posicionado a uma distancia de aproximadamente 30 cm da folha do teste, ele deve ficar paralelo a superfície do teste para uma melhor captura da imagem, deve se respeitar também todas as restrições vistas na Seção 3.3.1. Foram utilizadas no teste as folhas do modelo II conforme seção 2.2.1. Ao todo, foram utilizadas 10 imagem do teste palográfico.
 
 Na tabela \ref{tab:result}  temos o resultado da contagem para as imagens utilizadas nos testes. Foi feito uma comparação entre a contagem manual dos palos e a contagem feito pelo protótipo, temos também a quantidades de palos detectados pelo contador que não estão presentes no total real, temos a quantidade de palos não detectados pelo contador e o percentual de acertos pelo protótipo. Foi denominado falso positivo quando o algoritmo detecta palos a mais que a quantidade feita na contagem manual e falso negativo quando alguns palos não são detectados.
-No decorrer do experimento, foi observado que esses erros de detecção ocorrem na etapa de segmentação. Os falsos positivos geralmente ocorrem quando o palo esta meio apagado ou quando o palo não tem um tonalidade de cinza constante. Gerando mais objetos que a quantidade real, como pode ser visto na figura \ref{fig:palo-seg}.
+No decorrer do experimento, foi observado que esses erros de detecção ocorrem na etapa de segmentação. Os falsos positivos geralmente ocorrem quando o palo esta meio apagado ou quando o palo não tem um tonalidade de cinza constante. Gerando mais objetos que a quantidade real, como pode ser visto na Figura \ref{fig:palo-seg}.
 
 \begin{figure}[H]
  \centering
@@ -17,7 +17,7 @@ No decorrer do experimento, foi observado que esses erros de detecção ocorrem 
  \label{fig:palo-seg}
 \end{figure}
 
-Já os falsos negativos ocorrem quando os palos estão muito próximos ou encostado um no outro, dificultando a segmentação fazendo com que dois ou mais palos sejam contados como apenas um. Como pode ser visto na figura \ref{fig:palo-seg}  .
+Já os falsos negativos ocorrem quando os palos estão muito próximos ou encostado um no outro, dificultando a segmentação fazendo com que dois ou mais palos sejam contados como apenas um. Como pode ser visto na Figura \ref{fig:palo-seg}  .
 
 \begin{figure}[H]
  \centering
@@ -49,11 +49,11 @@ Já os falsos negativos ocorrem quando os palos estão muito próximos ou encost
 \label{tab:result}
 \end{table*}
 
-Somando-se os palos de todos os testes temos 7856 palos, com apenas  54 erros cometidos pelo protótipo, obtendo uma taxa de acerto no geral de 99.31\% o que é um resultado promissor. Podemos notar que a diferença entre os valores reais e os obtidos na contagem é pequena sendo a maior no teste numero 1 com 20 erros. Os melhores resultados foram nos testes numero 2 e 5 contabilizando a quantidade exata dos palos. Nas demais, a menor taxa de acerto foi no teste numero 1, com valor de 97,51\%  de acerto.
+Somando-se os palos de todos os testes temos 7856 palos, com apenas  54 erros cometidos pelo protótipo, obtendo uma taxa de acerto no geral de 99.31\% o que é um resultado promissor. Podemos notar que a diferença entre os valores reais e os obtidos na contagem é pequena sendo a maior no teste número 1 com 20 erros. Os melhores resultados foram nos testes numero 2 e 5 contabilizando a quantidade exata dos palos. Nas demais, a menor taxa de acerto foi no teste numero 1, com valor de 97,51\%  de acerto.
 
-O protótipo resultante deste trabalho  mostrou-se promissor, mostrando que o uso de técnicas de processamento de imagens e visão computacional tem se tornando de grande ajuda na resolução de problemas do dia a dia, como podemos ver nos trabalho de \cite{SILVA2012},  que utiliza as mesmas técnicas utilizadas neste trabalho é que também mostra resultados positivos. Ainda que os resultados tenham sido positivos,  se faz necessário mais testes de maneira exaustiva para um melhor grau de acurácia e confiabilidade, porém para o propósito deste trabalho os resultados são satisfatórios.
+O protótipo resultante deste trabalho  mostrou-se promissor, mostrando que o uso de técnicas de processamento de imagens e visão computacional tem se tornando de grande ajuda na resolução de problemas do dia a dia, como podemos ver nos trabalho de \cite{SILVA2012},  que utiliza as mesmas técnicas utilizadas neste trabalho e que também mostra resultados positivos. Ainda que os resultados tenham sido positivos,  é imprescindível que seja realizado mais testes de maneira exaustiva para um melhor grau de acurácia e confiabilidade, porém para o propósito deste trabalho os resultados são satisfatórios.
 
-Uma característica importante neste protótipo é que ele utiliza de imagens obtidas por celular, não há a necessidade de aquirir nenhum equipamento específico para o contagem dos palos, como acontece no software \cite{skip2018}.
+Uma característica importante neste protótipo é que ele utiliza de imagens obtidas por celular, não há a necessidade de aquirir nenhum equipamento específico para a contagem dos palos, como acontece no \textit{software} \cite{skip2018}.
 
 
 

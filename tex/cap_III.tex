@@ -23,7 +23,7 @@ Carregar a Imagem, Localização da folha, Pré-processamento, Segmentação, Id
  \label{fig:visao-geral}
 \end{figure}
 
-Na etapa de carregamento a imagem que contém o teste palográfico é carregada na memória e redimensionada, em seguida é repassada para a o pré-processamento e segmentação no qual são aplicados filtros e transformações na imagem para facilitar na etapa de localização  da folha nessa etapa é feito a separação dos objetos  do fundo da imagem e extração do ROI(Região de Interesse) que é a nossa folha do teste palográfico na próxima etapa é aplicado novamente o pré-processamento e segmentação porém dessa vez somente na ROI onde são extraídos os objetos em forma de retângulos que são adicionados em uma lista e repassados para a fase de identificação dos palos onde são feitas validações para identificar os palos. 
+Na etapa de carregamento a imagem que contém o teste palográfico é carregada na memória e redimensionada, em seguida é repassada para  o pré-processamento e segmentação, no qual são aplicados filtros e transformações na imagem para facilitar na etapa de localização  da folha, nessa etapa é feito a separação dos objetos  do fundo da imagem e extração do ROI(Região de Interesse) que é a nossa folha do teste palográfico na próxima etapa é aplicado novamente o pré-processamento e segmentação, porém dessa vez somente na ROI onde são extraídos os objetos em forma de retângulos que são adicionados em uma lista e repassados para a fase de identificação dos palos onde são feitas validações para identificar os palos. 
 
 No final é feito a contagem dos palos na ordem considerando o intervalo dos 5 tempos. Nas seções seguintes será abordado com mais detalhes os processos descritos.
 
@@ -69,7 +69,7 @@ Após o carregamento da imagem é aplicado o filtro Gaussiano para redução de 
    \caption{{\subref{subfig:ex1}} e {\subref{subfig:ex2}} Resultado do processamento da imagem nessa etapa inicial }
   \label{fig:subfiguras}
 \end{figure}
-No passo seguinte é aplicado uma transformação morfológica na parte Saturada da imagem,  chamada \textit{Closing} que é uma dilatação seguida de uma erosão. Foi utilizado como teste diversas transformações morfológicas, porém essa foi a que mostrou melhor resultado. Foi realizado uma limiarização (ou binarização) responsável por localizar os objetos presentes na imagem, para isso foram feitos testes com as funções \textbf{threshold} e \textbf{adaptativeThreshold} nativas da biblioteca \textbf{Opencv}, foi obtido  melhor resultado com a função \textbf{adaptativeThreshold}, por trabalhar melhor em imagens com iluminação variável. Os parâmeros utilizados na função foram 255 para o valor máximo, \textbf{ADATIVE THRESH GAUSSIAN C}  para o método, tipo de limiarização \textbf{THRESH BINARY}, 111 para \textbf{Block Size } e 13 para a constante \textbf{C}.
+No passo seguinte é aplicado uma transformação morfológica na parte Saturada da imagem,  chamada \textit{Closing} que é uma dilatação seguida de uma erosão. Foi utilizado como teste diversas transformações morfológicas, porém essa foi a que mostrou melhor resultado. Foi realizado uma limiarização (ou binarização) responsável por localizar os objetos presentes na imagem, para isso foram feitos testes com as funções \textbf{threshold} e \textbf{adaptativeThreshold} nativas da biblioteca \textbf{OpenCV}, foi obtido  melhor resultado com a função \textbf{adaptativeThreshold}, por trabalhar melhor em imagens com iluminação variável. Os parâmeros utilizados na função foram 255 para o valor máximo, \textbf{ADATIVE THRESH GAUSSIAN C}  para o método, tipo de limiarização \textbf{THRESH BINARY}, 111 para \textbf{Block Size } e 13 para a constante \textbf{C}.
 O resultado pode ser visto na Figura  \ref{subfig:adp-thres} 
 
 \begin{figure}[h]
@@ -122,7 +122,7 @@ Após a obtenção das coordenadas da nossa ROI é realizado o processo de segme
 Após a segmentação da folha com o teste dos palos, são aplicados alguns algoritmos  de melhoria na imagem por histograma e operações morfológicas para que possa se identificar os palos.
 \subsection{Pré-processamento}
 \label{sec:pre-proce}
-Nessa etapa a imagem é convertida para o espaço de cores LAB,  onde a camada L é responsável por armazenar somente os dados de luminosidade da imagem em seguida é aplicado uma correção do contraste por equalização adaptativa do histograma utilizando a função da Opencv \textbf{createCLAHE} essa abordagem é mais eficiente em imagens onde pode haver maior variação de luminosidade, pois o ajuste do contraste por histograma ocorre em pedaços da imagem e não na imagem de maneira global. Em seguida são realizadas  transformações morfológicas  com a função \textbf{morphologyEx} da Opencv foram utilizadas as operações de erosão e dilatação e a \textbf{BLACKHAT}, depois foi aplicado um filtro de suavização  para redução de ruídos, em seguida a imagem foi binarizada utilizando a função \textbf{threshold}.
+Nessa etapa a imagem é convertida para o espaço de cores LAB\footnote{http://sensing.konicaminolta.com.br/2013/11/entendendo-o-espaco-de-cor-lab/} ,  onde a camada L é responsável por armazenar somente os dados de luminosidade da imagem em seguida é aplicado uma correção do contraste por equalização adaptativa do histograma utilizando a função da Opencv \textbf{createCLAHE} essa abordagem é mais eficiente em imagens onde pode haver maior variação de luminosidade, pois o ajuste do contraste por histograma ocorre em pedaços da imagem e não na imagem de maneira global. Em seguida são realizadas  transformações morfológicas  com a função \textbf{morphologyEx} da OpenCV foram utilizadas as operações de erosão e dilatação e a \textbf{BLACKHAT}, depois foi aplicado um filtro de suavização  para redução de ruídos, em seguida a imagem foi binarizada utilizando a função \textbf{threshold}.
 Na imagem \ref{subfig:roi-seg}  temos o resultado da aplicação dessas técnicas de processamento.
 
 \begin{figure}[h]
@@ -133,7 +133,7 @@ Na imagem \ref{subfig:roi-seg}  temos o resultado da aplicação dessas técnica
     \includegraphics[width=0.32\textwidth]{./fig/desenvolvimento//img_clahe}
     \label{subfig:roi-clahe}
    } \qquad
-    \subfigure[][Imagem apos aplicação a transformação morfológica BLACKHAT.]
+    \subfigure[][Imagem após aplicação da transformação morfológica BLACKHAT.]
    {
     \includegraphics[width=0.32\textwidth]{./fig/desenvolvimento//blackhat}
     \label{subfig:roi-blck}
@@ -158,7 +158,7 @@ Em seguida depois de ordenado os palos é feito a contagem  nos 5 intervalos de 
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.70\textwidth]{./fig/desenvolvimento/final}
+ \includegraphics[width=0.90\textwidth]{./fig/desenvolvimento/final}
  \caption{Resultado da ordenação e contagem dos palos.}
  \label{fig:ord-contagem}
 \end{figure}
